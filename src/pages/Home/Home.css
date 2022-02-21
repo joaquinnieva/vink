@@ -1,0 +1,16 @@
+.home_scroll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: scroll;
+  animation: scroll 1s infinite alternate;
+}
+
+@keyframes scroll {
+  from {
+    margin-top: 0px;
+  }
+  to {
+    margin-top: 20px;
+  }
+}

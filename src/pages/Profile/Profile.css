@@ -1,0 +1,99 @@
+.section-profile {
+  min-height: calc(100vh - 72px);
+}
+
+.modal {
+  font-size: 12px;
+  border-radius: 8px;
+  max-height: 90vh;
+  overflow-x: hidden;
+}
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px 7px;
+  line-height: 20px;
+  right: 5px;
+  top: -30px;
+  font-size: 24px;
+  color: white;
+  background: rgba(211, 211, 211, 0.22);
+  border-radius: 5px;
+}
+.popup-content {
+  background: none;
+  border: none;
+  width: 90%;
+  height: auto;
+}
+
+.button-form {
+  height: 38px;
+  width: 90px;
+}
+
+.markdown > p > img {
+  display: none;
+}
+
+.markdown > p > a {
+  display: none;
+}
+
+.markdown > p {
+  display: flex;
+  flex-direction: column;
+}
+.markdown > h1 {
+  display: block;
+  font-size: 1.3em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.markdown > h2 {
+  display: block;
+  font-size: 1.1em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: code;
+  src: url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
+}
+.markdown > p > code {
+  font-family: code;
+}
+.markdown > blockquote {
+  border-left: 5px solid rgba(204, 204, 204, 0.733);
+  margin-left: 10px;
+  padding: 0.5em 10px;
+  quotes: '\201C''\201D''\2018''\2019';
+}
+.markdown > ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+.markdown > ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+.markdown > ul ul,
+ol ul {
+  list-style-type: circle;
+  list-style-position: inside;
+  margin-left: 15px;
+}
+.markdown > ol ol,
+ul ol {
+  list-style-type: lower-latin;
+  list-style-position: inside;
+  margin-left: 15px;
+}
