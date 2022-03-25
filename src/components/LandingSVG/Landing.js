@@ -23,7 +23,15 @@ const Landing = ({ className }) => {
           <circle cx="2320.15" cy="1587.64" r="59.6777" fill="#1875CB" />
           <circle cx="2579.32" cy="972.678" r="59.6777" fill="#1875CB" />
           <circle cx="1514.21" cy="648.713" r="59.6777" fill="#1875CB" />
-          <circle cx="1969.47" cy="99.6777" r="59.1094" fill="#1875CB" />
+          <circle cx="1969.47" cy="99.6777" r="59.1094" fill="#1875CB"></circle>
+          <animateTransform
+            attributeName="transform"
+            attributeType="XML"
+            type="rotate"
+            dur="1s"
+            values="-1 260 250; 0 260 250; -1 260 250;0 260 250; -1 260 250 ;-1 260 250;-1 260 250;-1 260 250;-1 260 250;-1 260 250;-1 260 250;-1 260 250;-1 260 250;-1 260 250;-1 260 250;-1 260 250;-1 260 250;-1 260 250"
+            repeatCount="indefinite"
+          />
         </g>
         <g id="circles">
           <circle cx="641.213" cy="555.502" r="127.881" fill="#1875CB" />
