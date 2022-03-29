@@ -53,7 +53,7 @@ const FormEdit = ({ data, close }) => {
   const dataOptions = data?.options[0];
   useEffect(() => {}, [buttonEditUser]);
   return (
-    <div className="col-span-2 h-full overflow-auto rounded">
+    <div className="h-full col-span-2 overflow-auto rounded">
       <Formik
         initialValues={{
           name: '',
@@ -77,21 +77,21 @@ const FormEdit = ({ data, close }) => {
         {({ handleChange, values }) => (
           <Form>
             <div className="rounded-md">
-              <div className="px-4 py-5 bg-gray-300 space-y-6 sm:p-6">
+              <div className="px-4 py-5 space-y-6 bg-gray-300 sm:p-6">
                 {/* Imagenes */}
-                <div className="flex justify-around flex-wrap px-1">
+                <div className="flex flex-wrap justify-around px-1">
                   {/* Foto */}
                   <div className="pr-10">
                     <label className="block text-sm font-medium text-gray-700">{USER_PHOTO}</label>
-                    <div className="mt-1 flex items-center">
-                      <span className="flex justify-center items-center h-12 w-12 rounded-full overflow-hidden bg-gray-500">
+                    <div className="flex items-center mt-1">
+                      <span className="flex items-center justify-center w-12 h-12 overflow-hidden bg-gray-500 rounded-full">
                         {image ? (
-                          <img className="h-fit w-fit m-auto" src={image} alt="" />
+                          <img className="object-cover w-full h-full" src={image} alt="" />
                         ) : (
-                          <img className="h-fit w-fit m-auto" src={data?.image} alt="" />
+                          <img className="object-cover w-full h-full" src={data?.image} alt="" />
                         )}
                       </span>
-                      <label className="cursor-pointer ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
+                      <label className="px-3 py-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
                         {EDIT_PROFILE}
                         <input
                           onChange={(event) => {
@@ -114,14 +114,14 @@ const FormEdit = ({ data, close }) => {
                   {/* Color */}
                   <div className="pr-10">
                     <label className="block text-sm font-medium text-gray-700">{USER_COLOR}</label>
-                    <div className="mt-1 flex items-center">
+                    <div className="flex items-center mt-1">
                       <span
-                        className="inline-block h-12 w-12 rounded border border-gray-400 overflow-hidden "
+                        className="inline-block w-12 h-12 overflow-hidden border border-gray-400 rounded "
                         style={{ background: values.options.color }}
                       ></span>
                       <label
                         htmlFor="color"
-                        className="cursor-pointer w-fit ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                        className="px-3 py-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm cursor-pointer w-fit hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
                       >
                         {EDIT_PROFILE}
                       </label>
@@ -131,15 +131,15 @@ const FormEdit = ({ data, close }) => {
                         name={`options.color`}
                         id="color"
                         type="color"
-                        className="invisible absolute top-1/2"
+                        className="absolute invisible top-1/2"
                       />
                     </div>
                   </div>
                   {/* Portada */}
                   <div className="pr-10">
                     <label className="block text-sm font-medium text-gray-700">{USER_BG}</label>
-                    <div className="mt-1 flex items-center">
-                      <span className="flex justify-center items-center h-12 w-12 rounded overflow-hidden bg-gray-100">
+                    <div className="flex items-center mt-1">
+                      <span className="flex items-center justify-center w-12 h-12 overflow-hidden bg-gray-100 rounded">
                         {background ? (
                           <img className="h-fit w-fit" src={background} alt="" />
                         ) : data.background ? (
@@ -148,7 +148,7 @@ const FormEdit = ({ data, close }) => {
                           <img className="h-fit w-fit" src={SAMPLE_BG} alt="" />
                         )}
                       </span>
-                      <label className="cursor-pointer ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
+                      <label className="px-3 py-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
                         {EDIT_PROFILE}
                         <input
                           onChange={(event) => {
@@ -177,12 +177,12 @@ const FormEdit = ({ data, close }) => {
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                       {USER_NAME}
                     </label>
-                    <div className="mt-1 flex rounded-md shadow-sm">
+                    <div className="flex mt-1 rounded-md shadow-sm">
                       <input
                         onChange={handleChange}
                         value={values.name}
                         type="text"
-                        className="text-gray-600 focus:ring-vink-800 focus:border-vink-800 flex-1 block w-full rounded-md sm:text-sm border border-gray-300 p-1"
+                        className="flex-1 block w-full p-1 text-gray-600 border border-gray-300 rounded-md focus:ring-vink-800 focus:border-vink-800 sm:text-sm"
                         name="name"
                         id="name"
                         placeholder={data.name}
@@ -197,25 +197,25 @@ const FormEdit = ({ data, close }) => {
                   <label htmlFor="about" className="block text-sm font-medium text-gray-700">
                     {USER_DESC}
                   </label>
-                  <div className="mt-1 flex flex-row gap-2 items-start flex-wrap">
+                  <div className="flex flex-row flex-wrap items-start gap-2 mt-1">
                     <textarea
                       onChange={handleChange}
                       value={values.description}
-                      className="p-1 text-gray-600 shadow-sm focus:ring-gray-500 focus:border-gray-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
+                      className="block w-full p-1 mt-1 text-gray-600 border border-gray-300 rounded-md shadow-sm focus:ring-gray-500 focus:border-gray-500 sm:text-sm"
                       name="description"
                       autoComplete="off"
                       rows={5}
                     />
                     <div>
                       <label className="block text-sm font-medium text-gray-700">{TEXT_COLOR}</label>
-                      <div className="mt-1 flex items-center">
+                      <div className="flex items-center mt-1">
                         <span
-                          className="inline-block h-12 w-12 rounded border border-gray-400 overflow-hidden "
+                          className="inline-block w-12 h-12 overflow-hidden border border-gray-400 rounded "
                           style={{ background: values.options.textColor }}
                         ></span>
                         <label
                           htmlFor="textColor"
-                          className="cursor-pointer w-fit ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                          className="px-3 py-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm cursor-pointer w-fit hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
                         >
                           {EDIT_PROFILE}
                         </label>
@@ -225,7 +225,7 @@ const FormEdit = ({ data, close }) => {
                           name={`options.textColor`}
                           id="textColor"
                           type="color"
-                          className="invisible absolute top-0 left-20"
+                          className="absolute top-0 invisible left-20"
                         />
                       </div>
                     </div>
@@ -246,17 +246,17 @@ const FormEdit = ({ data, close }) => {
                             {values.links && values.links.length > 0 ? (
                               values.links.map((link, index) => (
                                 <div key={index}>
-                                  <div className="flex flex-row m-1 justify-between">
+                                  <div className="flex flex-row justify-between m-1">
                                     <Field
                                       autoComplete="off"
                                       placeholder="Title"
-                                      className="text-gray-600 shadow-sm focus:ring-vink-800 focus:border-vink-800 flex-1 block w-full rounded-md sm:text-sm border border-gray-300 p-1"
+                                      className="flex-1 block w-full p-1 text-gray-600 border border-gray-300 rounded-md shadow-sm focus:ring-vink-800 focus:border-vink-800 sm:text-sm"
                                       name={`links.${index}.title`}
                                     />
                                     <Field
                                       autoComplete="off"
                                       placeholder="http://example.com"
-                                      className="text-gray-600 shadow-sm focus:ring-vink-800 focus:border-vink-800 flex-1 block w-full rounded-md sm:text-sm border border-gray-300 p-1"
+                                      className="flex-1 block w-full p-1 text-gray-600 border border-gray-300 rounded-md shadow-sm focus:ring-vink-800 focus:border-vink-800 sm:text-sm"
                                       name={`links.${index}.link`}
                                     />
                                     <button
@@ -269,11 +269,11 @@ const FormEdit = ({ data, close }) => {
                                   </div>
                                   {index === values.links.length - 1 && (
                                     <button
-                                      className="p-1 m-2 w-full"
+                                      className="w-full p-1 m-2"
                                       type="button"
                                       onClick={() => arrayHelpers.insert(index + 1, '')}
                                     >
-                                      <span className="bg-gray-800 hover:bg-gray-700 text-gray-100 font-semibold p-1 border border-gray-400 rounded-none">
+                                      <span className="p-1 font-semibold text-gray-100 bg-gray-800 border border-gray-400 rounded-none hover:bg-gray-700">
                                         &#10011;
                                       </span>
                                     </button>
@@ -282,7 +282,7 @@ const FormEdit = ({ data, close }) => {
                               ))
                             ) : (
                               <button
-                                className="bg-gray-600 hover:bg-gray-500 hover:text-gray-300 text-gray-400 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+                                className="px-4 py-2 font-semibold text-gray-400 bg-gray-600 border border-gray-400 rounded shadow hover:bg-gray-500 hover:text-gray-300"
                                 type="button"
                                 onClick={() => arrayHelpers.push('')}
                               >
@@ -299,7 +299,7 @@ const FormEdit = ({ data, close }) => {
                 {/* Boton */}
                 <div className="mt-4">
                   <label className="block text-sm font-medium text-gray-700">{BUTTON}</label>
-                  <div className="mt-1 flex items-center flex-wrap justify-start sm:justify-around">
+                  <div className="flex flex-wrap items-center justify-start mt-1 sm:justify-around">
                     <span
                       className={`bg-gray-200 text-black drop-shadow-md rounded py-3 px-16 m-4 whitespace-nowrap w-100 ${values.options.buttonRadius}`}
                       style={{ background: values.options.buttonColor, color: values.options.buttonText }}
@@ -308,7 +308,7 @@ const FormEdit = ({ data, close }) => {
                     </span>
                     <label
                       htmlFor="buttonColor"
-                      className="my-2 cursor-pointer w-fit ml-5 bg-white py-2 px-3 whitespace-nowrap border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                      className="px-3 py-2 my-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm cursor-pointer w-fit whitespace-nowrap hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
                     >
                       {BG_COLOR}
                     </label>
@@ -322,7 +322,7 @@ const FormEdit = ({ data, close }) => {
                     />
                     <label
                       htmlFor="buttonText"
-                      className="my-2 cursor-pointer w-fit ml-5 bg-white py-2 px-3 whitespace-nowrap border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                      className="px-3 py-2 my-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm cursor-pointer w-fit whitespace-nowrap hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
                     >
                       {TEXT_COLOR}
                     </label>
@@ -337,7 +337,7 @@ const FormEdit = ({ data, close }) => {
                     <Field
                       as="select"
                       name={`options.buttonRadius`}
-                      className="my-2 cursor-pointer w-fit ml-5 bg-white py-2 px-3 whitespace-nowrap border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                      className="px-3 py-2 my-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm cursor-pointer w-fit whitespace-nowrap hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
                       id="buttonRadius"
                       placeholder="Radio de botón"
                       value={values.options.buttonRadius}
@@ -354,21 +354,21 @@ const FormEdit = ({ data, close }) => {
               </div>
 
               {/* Boton Guardar */}
-              <div className="px-4 py-3 bg-gray-300 text-right sm:px-6">
+              <div className="px-4 py-3 text-right bg-gray-300 sm:px-6">
                 {loading ? (
                   <>
                     <button
                       type="submit"
-                      className="button-form inline-flex items-center justify-center border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                      className="inline-flex items-center justify-center text-sm font-medium text-white bg-gray-800 border border-transparent rounded-md shadow-sm button-form hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
                     >
                       <p className="hidden">{SAVE_PROFILE}</p>
-                      <Loader className="h-6 w-6 text-white" />
+                      <Loader className="w-6 h-6 text-white" />
                     </button>
                   </>
                 ) : (
                   <button
                     type="submit"
-                    className="button-form inline-flex justify-center items-center px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                    className="inline-flex items-center justify-center px-4 text-sm font-medium text-white bg-gray-800 border border-transparent rounded-md shadow-sm button-form hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
                   >
                     {SAVE_PROFILE}
                   </button>

@@ -2,6 +2,7 @@ import { LockClosedIcon } from '@heroicons/react/solid';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React, { useEffect, useState } from 'react';
 import GoogleLogin from 'react-google-login';
+import Helmet from 'react-helmet';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Backarrow from '../../components/BackArrow/BackArrow';
@@ -73,19 +74,23 @@ function Register() {
   });
   return (
     <>
+      <Helmet>
+        <title>Vink</title>
+        <meta name="description" content="comienza a usar Vink, tu mejor perfil" />
+      </Helmet>
       <section className="w-screen h-screen">
-        <div className="absolute left-0 top-0 p-6 text-white">
+        <div className="absolute top-0 left-0 p-6 text-white">
           <Link to="/home">
             <Backarrow />
           </Link>
         </div>
-        <div className="min-h-full  flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-md w-full space-y-8 bg-white p-5 rounded">
+        <div className="flex items-center justify-center min-h-full px-4 py-12 sm:px-6 lg:px-8">
+          <div className="w-full max-w-md p-5 space-y-8 bg-white rounded">
             <div>
-              <div className="mx-auto h-auto w-auto flex justify-center">
+              <div className="flex justify-center w-auto h-auto mx-auto">
                 <VinkIcon colour={GRIS_OSCURO} height={70} width={400} complete />
               </div>
-              <h2 className="mt-6 text-center text-3xl font-bold text-gray-800">{REGISTER_PAGE}</h2>
+              <h2 className="mt-6 text-3xl font-bold text-center text-gray-800">{REGISTER_PAGE}</h2>
             </div>
             <Formik
               initialValues={{ username: '', password: '' }}
@@ -108,33 +113,33 @@ function Register() {
             >
               {() => (
                 <Form className="mt-8 space-y-6">
-                  <div className="rounded-md shadow-sm -space-y-px">
+                  <div className="-space-y-px rounded-md shadow-sm">
                     <div>
                       <Field
-                        className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-slate-500 focus:border-slate-500 focus:z-10 sm:text-sm"
+                        className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-slate-500 focus:border-slate-500 focus:z-10 sm:text-sm"
                         type="text"
                         name="username"
                         placeholder="Usuario"
                         autoComplete="off"
                       />
                     </div>
-                    <div className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-slate-500 focus:border-slate-500 focus:z-10 sm:text-sm">
+                    <div className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:ring-slate-500 focus:border-slate-500 focus:z-10 sm:text-sm">
                       <Field
-                        className="appearance-none block w-full text-gray-900 rounded-b-md focus:outline-none focus:ring-slate-500 focus:border-slate-500 focus:z-10 sm:text-sm"
+                        className="block w-full text-gray-900 appearance-none rounded-b-md focus:outline-none focus:ring-slate-500 focus:border-slate-500 focus:z-10 sm:text-sm"
                         type={`${visible ? 'text' : 'password'}`}
                         name="password"
                         placeholder="Contraseña"
                       />
-                      <button type="button" onClick={isVisible} className="text-black absolute inset-y-0 right-0 p-2">
+                      <button type="button" onClick={isVisible} className="absolute inset-y-0 right-0 p-2 text-black">
                         {visible ? <Visibility visible /> : <Visibility />}
                       </button>
                     </div>
-                    {error && <div className="text-red-400 p-2">{ERROR_MSG}</div>}
+                    {error && <div className="p-2 text-red-400">{ERROR_MSG}</div>}
                     <ErrorMessage name="username">
-                      {(msg) => <div className="text-red-400 p-2">{msg}</div>}
+                      {(msg) => <div className="p-2 text-red-400">{msg}</div>}
                     </ErrorMessage>
                     <ErrorMessage name="password">
-                      {(msg) => <div className="text-red-400 p-2">{msg}</div>}
+                      {(msg) => <div className="p-2 text-red-400">{msg}</div>}
                     </ErrorMessage>
                   </div>
 
@@ -142,22 +147,22 @@ function Register() {
                     {loading ? (
                       <button
                         type="button"
-                        className="disabled group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        className="relative flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-gray-700 border border-transparent rounded-md disabled group hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         disabled
                       >
-                        <span className="absolute left-0 inset-y-0 flex items-center pl-2">
-                          <Loader className="h-10 w-10 mr-3" />
+                        <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                          <Loader className="w-10 h-10 mr-3" />
                         </span>
                         {REGISTERING}
                       </button>
                     ) : (
                       <button
                         type="submit"
-                        className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        className="relative flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-gray-700 border border-transparent rounded-md group hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                       >
-                        <span className="absolute left-0 inset-y-0 flex items-center pl-3">
+                        <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                           <LockClosedIcon
-                            className="h-5 w-5 text-gray-500 group-hover:text-gray-400"
+                            className="w-5 h-5 text-gray-500 group-hover:text-gray-400"
                             aria-hidden="true"
                           />
                         </span>
@@ -171,14 +176,14 @@ function Register() {
                           <button
                             onClick={renderProps.onClick}
                             disabled={renderProps.disabled}
-                            className="mt-3 border-1 border-black group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-black bg-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            className="relative flex justify-center w-full px-4 py-2 mt-3 text-sm font-medium text-black bg-white border border-transparent border-black rounded-md border-1 group hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                           >
-                            <span className="absolute left-0 inset-y-0 flex items-center pl-3">
+                            <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                               <svg
                                 version="1.1"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 48 48"
-                                className="h-5 w-5 text-gray-200 group-hover:text-gray-200"
+                                className="w-5 h-5 text-gray-200 group-hover:text-gray-200"
                               >
                                 <g>
                                   <path
@@ -210,10 +215,10 @@ function Register() {
                       />
                     )}
                   </div>
-                  <div className="w-full flex justify-center">
-                    <Link className="text-stone-900 text-center" to="/login">
+                  <div className="flex justify-center w-full">
+                    <Link className="text-center text-stone-900" to="/login">
                       {LOGIN_ACCOUNT},
-                      <p className="text-stone-800 underline font-semibold decoration-1">inicia sesión aquí</p>
+                      <p className="font-semibold underline text-stone-800 decoration-1">inicia sesión aquí</p>
                     </Link>
                   </div>
                 </Form>

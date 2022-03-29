@@ -26,37 +26,37 @@ function Navbar({ top, home }) {
   useEffect(() => {}, []);
   return (
     <nav className={home ? navIsHome : navIsProfile}>
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="relative flex items-center h-16 m-2 justify-between">
+      <div className="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="relative flex items-center justify-between h-16 m-2">
           <div className="flex justify-start">
             <div className={`flex-shrink-0 flex items-center `}>
-              <Link to="/" className="block md:hidden h-10 w-auto">
+              <Link to="/" className="block w-auto h-10 md:hidden">
                 <VinkIcon height={40} width={120} />
               </Link>
-              <Link to="/" className="hidden md:block h-8 w-auto">
-                <VinkIcon height={40} width={130} complete />
+              <Link to="/" className="hidden w-auto h-8 md:block">
+                <VinkIcon height={40} width={130} />
               </Link>
             </div>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-4 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <Menu as="div" className="ml-3 relative">
+            <Menu as="div" className="relative ml-3">
               <div>
                 {user ? (
-                  <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                  <Menu.Button className="flex w-8 h-8 text-sm bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                     {user.image ? (
-                      <img className="h-8 w-8 rounded-full" src={user.image} alt="perfil" />
+                      <img className="object-cover w-full h-full rounded-full" src={user.image} alt="perfil" />
                     ) : (
-                      <img className="h-8 w-8 rounded-full" src={SAMPLE_IMAGE} alt="perfil" />
+                      <img className="object-cover w-full h-full rounded-full" src={SAMPLE_IMAGE} alt="perfil" />
                     )}
                   </Menu.Button>
                 ) : (
-                  <div className="bg-gray-800 flex gap-2 text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <Link to="login" className="bg-vink-800 text-gray-100 rounded py-2 px-6 hover:bg-vink-700">
+                  <div className="flex gap-2 text-sm bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                    <Link to="login" className="px-6 py-2 text-gray-100 rounded bg-vink-800 hover:bg-vink-700">
                       {LOGIN}
                     </Link>
                     <Link
                       to="register"
-                      className="border border-gray-300 rounded py-2 px-6 hover:bg-gray-300 text-gray-100 hover:text-gray-900 hidden sm:block"
+                      className="hidden px-6 py-2 text-gray-100 border border-gray-300 rounded hover:bg-gray-300 hover:text-gray-900 sm:block"
                     >
                       {REGISTER}
                     </Link>
@@ -76,7 +76,7 @@ function Navbar({ top, home }) {
                   {user && (
                     <Link
                       to={`/user/${user?.username}`}
-                      className="block hover:bg-gray-200 px-4 py-2 text-sm text-gray-700"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
                     >
                       {PROFILE}
                     </Link>
@@ -84,7 +84,7 @@ function Navbar({ top, home }) {
                   <button
                     type="button"
                     onClick={logoutButton}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 w-full text-left"
+                    className="block w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-200"
                   >
                     {LOGOUT}
                   </button>
