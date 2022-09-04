@@ -72,11 +72,19 @@ const Home = () => {
         {/* card features section */}
         <section className="text-gray-400 body-font">
           <div className="container flex flex-wrap px-5 py-24 mx-auto" id="feats">
-            <div className="flex flex-col w-full mb-20 text-center">
+            <div className="flex flex-col w-full mb-16 text-center">
               <h2 className="mb-1 text-xs font-medium tracking-widest text-vink-800 title-font">
                 {HOME_SECTION_FEATS_SUB}
               </h2>
               <h1 className="text-2xl font-medium text-white sm:text-3xl title-font">{HOME_SECTION_FEATS}</h1>
+              <div className="flex justify-center w-full pt-6">
+                <a
+                  href="user/joaquinnieva"
+                  className="inline-flex px-6 py-2 ml-4 text-lg text-gray-400 bg-gray-800 border border-gray-400 rounded focus:outline-none hover:bg-gray-700 hover:text-white"
+                >
+                  Ver ejemplo
+                </a>
+              </div>
             </div>
             <div className="flex flex-wrap -m-4">
               {homeCards.map((card, index) => (
