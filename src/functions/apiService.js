@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-const URI_API = `https://vink-api.herokuapp.com/api`;
+const URI_API = 'https://api-vink.onrender.com/api';
 
 export const loginUser = async (value) => {
   try {
@@ -36,7 +36,7 @@ export const editUser = async (id, value, token) => {
   try {
     let config = {
       headers: {
-        'Authorization': 'Bearer ' + token,
+        Authorization: 'Bearer ' + token,
         'Access-Control-Allow-Origin': '*',
       },
     };
